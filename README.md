@@ -52,15 +52,24 @@ Once the application is running:
 
 Example:
 ```
-project-name/
-├── src/
-│   ├── index.html
-│   ├── style.css
-│   ├── app.js
-│   └── components/
-├── package.json
-├── README.md
-└── .gitignore
+my-project/
+├─ public/
+│  ├─ images/
+│  └─ text/
+│     ├─ nav.txt
+│     └─ footer.txt
+├─ src/
+│  ├─ styles/
+│  ├─ app.js
+│  ├─ authentication.js
+│  ├─ firebaseConfig.js
+│  ├─ loginSignup.js      ← your login/signup UI logic
+│  └─ main.js
+├─ .env
+├─ login.html
+├─ main.html
+└─ index.html 
+
 ```
 
 ---
