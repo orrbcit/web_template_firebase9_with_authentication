@@ -17,6 +17,13 @@ function sayHello() {
 }
 document.addEventListener('DOMContentLoaded', sayHello);
 
+//--------------------------------------------------------------
+// Function: loadSkeleton()
+// Load dynamically navbar and footer from external HTML text files
+// into the div placeholders in each HTML page.
+// This avoids duplicating the same navbar/footer code in every HTML file.
+// Note: This requires jQuery to be imported.
+//--------------------------------------------------------------
 function loadSkeleton(){
     console.log($('#navbarPlaceholder').load('/text/nav.txt'));
     console.log($('#footerPlaceholder').load('/text/footer.txt'));
