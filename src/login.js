@@ -11,6 +11,8 @@ import {
 } from './authentication.js';
 
 // --- Login and/or Signup Page ---
+
+// -------------------------------------------------------------
 // This page has logic for both login and signup form task flows.
 // We show/hide the appropriate form when the user clicks
 // the "Login" or "Signup" buttons.

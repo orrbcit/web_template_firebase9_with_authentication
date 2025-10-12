@@ -103,12 +103,21 @@ export function checkAuthState() {
   });
 }
 
+// -------------------------------------------------------------
+// onAuthReady(callback)
+// -------------------------------------------------------------
+// Wrapper for Firebase's onAuthStateChanged()
+// Runs the given callback(user) when Firebase resolves or changes auth state.
+// Useful for showing user info or redirecting after login/logout.
 export function onAuthReady(callback) {
-  // Runs callback with (user) when Firebase resolves auth state
   return onAuthStateChanged(auth, callback);
 }
 
-// Converts Firebase Auth error codes to readable messages
+// -------------------------------------------------------------
+// authErrorMessage(error)
+// -------------------------------------------------------------
+// Maps Firebase Auth error codes to short, user-friendly messages.
+// Helps display clean error alerts instead of raw Firebase codes.
 export function authErrorMessage(error) {
   const code = (error?.code || "").toLowerCase();
 
@@ -116,15 +125,14 @@ export function authErrorMessage(error) {
     "auth/invalid-credential": "Wrong email or password.",
     "auth/invalid-email": "Please enter a valid email address.",
     "auth/user-not-found": "No account found with that email.",
-    "auth/wrong-password": "Incorrect password. Please try again.",
+    "auth/wrong-password": "Incorrect password.",
     "auth/too-many-requests": "Too many attempts. Try again later.",
-    "auth/email-already-in-use": "That email address is already in use.",
-    "auth/weak-password": "Please choose a stronger password (at least 6 characters).",
+    "auth/email-already-in-use": "Email is already in use.",
+    "auth/weak-password": "Password too weak (min 6 characters).",
     "auth/missing-password": "Password cannot be empty.",
-    "auth/network-request-failed": "Network error. Check your connection and try again.",
+    "auth/network-request-failed": "Network error. Try again.",
   };
 
-  // Return the mapped message, or a generic fallback
   return map[code] || "Something went wrong. Please try again.";
 }
 
