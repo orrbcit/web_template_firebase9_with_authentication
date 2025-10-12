@@ -22,7 +22,10 @@ document.addEventListener('DOMContentLoaded', sayHello);
 // Load dynamically navbar and footer from external HTML text files
 // into the div placeholders in each HTML page.
 // This avoids duplicating the same navbar/footer code in every HTML file.
-// Note: This requires jQuery to be imported.
+// Note: 
+// 1. This requires jQuery to be imported.
+// 2. Vite interprets that URL as a request to the web root, so it will look for:
+//    <project-root>/public/text/nav.txt
 //--------------------------------------------------------------
 function loadSkeleton(){
     console.log($('#navbarPlaceholder').load('/text/nav.txt'));
