@@ -1,5 +1,9 @@
 class SiteNavbar extends HTMLElement {
     connectedCallback() {
+        this.renderNavbar();
+    }
+
+    renderNavbar() {
         this.innerHTML = `
             <!-- Navbar: single source of truth -->
             <nav class="navbar navbar-expand-lg navbar-light bg-info">
@@ -34,4 +38,5 @@ class SiteNavbar extends HTMLElement {
         `;
     }
 }
+
 customElements.define('site-navbar', SiteNavbar);
