@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
-import $ from 'jquery';
 
 //--------------------------------------------------------------
 // If you have custom global styles, import them as well:
@@ -16,19 +15,3 @@ function sayHello() {
   // TODO: implement your logic here
 }
 document.addEventListener('DOMContentLoaded', sayHello);
-
-//--------------------------------------------------------------
-// Function: loadSkeleton()
-// Load dynamically navbar and footer from external HTML text files
-// into the div placeholders in each HTML page.
-// This avoids duplicating the same navbar/footer code in every HTML file.
-// Note: 
-// 1. This requires jQuery to be imported.
-// 2. Vite interprets that URL as a request to the web root, so it will look for:
-//    <project-root>/public/text/nav.txt
-//--------------------------------------------------------------
-function loadSkeleton(){
-    console.log($('#navbarPlaceholder').load('/text/nav.txt'));
-    console.log($('#footerPlaceholder').load('/text/footer.txt'));
-}
-loadSkeleton();  //invoke the function

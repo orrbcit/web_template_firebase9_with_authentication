@@ -47,6 +47,50 @@ Once the application is running:
 
 
 ---
+## Shared Navbar and Footer (Web Components)
+What this gives you:
+
+- A single source of truth for the navbar and footer
+- Same markup reused across all pages with `<site-navbar>` and `<site-footer>`
+- Easy customization by editing a single JavaScript file per component
+
+How to use it on any HTML page (e.g., `index.html`, `skeleton.html`):
+
+1) Import the components (in `<head>`):
+
+	```html
+	<script type="module" src="/src/components/site-navbar.js"></script>
+	<script type="module" src="/src/components/site-footer.js"></script>
+	```
+
+	Also load global scripts:
+
+	```html
+	<script type="module" src="/src/app.js"></script>
+	```
+
+	Notes:
+	- Bootstrap CSS and JS are imported in `src/app.js` via ES modules, so you don’t need extra `<link>` or `<script>` tags in HTML.
+	- Vite handles module loading during development with `npm run dev`.
+
+2) Drop the custom elements where you want them to render:
+
+	```html
+	<!-- our own navbar goes here -->
+	<site-navbar></site-navbar>
+
+	<!-- Main content goes here -->
+
+	<!-- our own footer goes here -->
+	<site-footer></site-footer>
+	```
+
+3) Customize the shared markup once:
+
+	- Edit `src/components/site-navbar.js` to change the navbar (brand, links, etc.)
+	- Edit `src/components/site-footer.js` to change the footer
+
+	Every page using `<site-navbar>` and `<site-footer>` will automatically reflect your changes.
 
 ## Project Structure
 
@@ -54,21 +98,20 @@ Example:
 ```
 my-project/
 ├─ public/
-│  ├─ images/
-│  └─ text/
-│     ├─ nav.txt
-│     └─ footer.txt
+│  └─ images/
 ├─ src/
+│  ├─ components/
+│  │  ├─ site-footer.js   ← shared footer Web Component
+│  │  └─ site-navbar.js   ← shared navbar Web Component
 │  ├─ styles/
-│  ├─ app.js
+│  │  └─ style.css
+│  ├─ app.js              ← imports Bootstrap + global styles
 │  ├─ authentication.js
 │  ├─ firebaseConfig.js
-│  ├─ loginSignup.js      ← your login/signup UI logic
-│  └─ main.js
-├─ .env
+│  └─ loginSignup.js      ← login/signup UI logic
 ├─ login.html
-├─ main.html
-└─ index.html 
+├─ index.html
+└─ skeleton.html
 
 ```
 
