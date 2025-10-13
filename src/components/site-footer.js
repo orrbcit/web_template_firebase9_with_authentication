@@ -1,7 +1,3 @@
-/**
- * Site Footer Web Component (simplified)
- * HTML is embedded directly to keep things easy for beginners.
- */
 class SiteFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `

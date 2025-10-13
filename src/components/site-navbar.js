@@ -1,7 +1,3 @@
-/**
- * Site Header Web Component
- * Static template to avoid loading issues during development
- */
 class SiteNavbar extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -17,15 +13,21 @@ class SiteNavbar extends HTMLElement {
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul class="navbar-nav me-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="/">Home</a>
                             </li>
                         </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+                        <div class="d-flex align-items-center gap-2 ms-lg-2" id="rightControls">
+                            <form class="d-flex align-items-center gap-2 my-2 my-lg-0" id="navSearch" role="search">
+                                <input class="form-control d-none d-sm-block w-auto" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-light d-none d-sm-inline-block" type="submit">Search</button>
+                            </form>
+                            <div id="authControls" class="auth-controls d-flex align-items-center gap-2 my-2 my-lg-0">
+                                <!-- populated by JS -->
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </nav>
