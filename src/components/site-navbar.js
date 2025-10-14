@@ -1,5 +1,6 @@
 class SiteNavbar extends HTMLElement {
-    connectedCallback() {
+    constructor() {
+        super();
         this.renderNavbar();
     }
 
